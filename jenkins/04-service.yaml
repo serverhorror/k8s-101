@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-master
+spec:
+  type: NodePort
+  ports:
+  - name: jenkins-web
+    port: 80
+    targetPort: 8080
+    nodePort: 30380
+    protocol: TCP
+  - name: jenkins-jnlp
+    port: 30500
+    #targetPort: 50000
+    nodePort: 30500
+  selector:
+    app: jenkins
+    role: master

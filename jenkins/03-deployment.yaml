@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jenkins-master
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: jenkins
+        role: master
+    spec:
+      containers:
+        - name: jenkins-master
+          image: jenkins:latest
+          ports:
+          - containerPort: 8080
+          - containerPort: 50000
+          env:
+            - name: JENKINS_HOME
+              value: "/data"
+            - name: JENKINS_SLAVE_AGENT_PORT
+              value: "50000"
+          volumeMounts:
+          - name: docker-socket
+            mountPath: /var/run/docker.sock
+          - name: jenkins-data
+            mountPath: /data
+      securityContext:
+        fsGroup: 1000
+        supplementalGroups: [100]
+      volumes:
+      - name: docker-socket
+        hostPath:
+          path: /var/run/docker.sock
+      - name: jenkins-data
+        emptyDir: {}
