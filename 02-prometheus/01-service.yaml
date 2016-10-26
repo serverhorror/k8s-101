@@ -12,7 +12,6 @@ spec:
   - name: prometheus-http
     port: 80
     targetPort: 9090
-    nodePort: 30280
     protocol: TCP
   selector:
     app: prometheus
