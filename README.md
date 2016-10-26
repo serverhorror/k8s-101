@@ -47,7 +47,7 @@ Kubernetes metrics.
 * ConfigMap
   Basically, a descriptive way to expose configuration files to services that require them.
 
-Let's deploy. Shall we?
+#### Let's deploy. Shall we?
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/serverhorror/k8s-101/master/01-grafana/01-service.yaml
@@ -72,6 +72,20 @@ kubectl get svc
 kubectl describe svn grafana
 kubectl describe svc prometheus-nodeport
 ```
+
+#### Dynamic configuration changes
+
+```
+kubectl apply -f https://raw.githubusercontent.com/serverhorror/k8s-101/master/02-prometheus/03-configmap.yaml
+curl -XPOST http://${PROMETHEUS}:${PROMETHEUS_PORT}/-/reload
+```
+
+---
+
+**I like `<hrule/>`s!**
+
+---
+
 
 ### **Production**_-ish_ Deployment
 
