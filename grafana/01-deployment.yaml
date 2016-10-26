@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: grafana
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      containers:
+        - name: grafana
+          image: grafana/grafana:latest
+          ports:
+          - containerPort: 3000
+          env:
+            - name: GF_SECURITY_ADMIN
+              value: supersecret
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      # http://kubernetes.io/docs/api-reference/v1/definitions/#_v1_podsecuritycontext
+      # securityContext:
+      #   ...
+      #   ...
+      volumes:
+        - name: data
+          emptyDir: {}
