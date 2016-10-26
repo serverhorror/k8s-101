@@ -4,6 +4,8 @@ We'll be doing a small showcase
 
 ### Starting a development environment with minikube
 
+* [Upstream Documentation](http://kubernetes.io/docs/getting-started-guides/minikube/)
+
 Let's prepare the prerequisites
 
 ```
@@ -48,7 +50,7 @@ Kubernetes metrics.
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/serverhorror/k8s-101/master/01-grafana/01-service.yaml
-kubectl apply -f https://raw.githubusercontent.com/serverhorror/k8s-101/master/01-grafana/01-service.yaml
+kubectl apply -f https://raw.githubusercontent.com/serverhorror/k8s-101/master/01-grafana/02-deployment.yaml
 
 kubectl apply -f https://raw.githubusercontent.com/serverhorror/k8s-101/master/02-prometheus/01-service.yaml
 kubectl apply -f https://raw.githubusercontent.com/serverhorror/k8s-101/master/02-prometheus/02-NodePort-service.yaml
