@@ -47,6 +47,7 @@ Kubernetes metrics.
 * ConfigMap
   Basically, a descriptive way to expose configuration files to services that require them.
 
+Let's deploy. Shall we?
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/serverhorror/k8s-101/master/01-grafana/01-service.yaml
@@ -64,6 +65,13 @@ kubectl apply -f https://raw.githubusercontent.com/serverhorror/k8s-101/master/0
 kubectl apply -f https://raw.githubusercontent.com/serverhorror/k8s-101/master/03-node_exporter/02-daemonset.yaml
 ```
 
+Let's find out about where our services actually are:
+
+```
+kubectl get svc
+kubectl describe svn grafana
+kubectl describe svc prometheus-nodeport
+```
 
 ### **Production**_-ish_ Deployment
 
