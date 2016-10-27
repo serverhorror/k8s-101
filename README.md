@@ -113,8 +113,11 @@ kubeadm init
 ```
 # Magic networking! (Overlay Network for nodes)
 kubectl apply -f https://git.io/weave-kube
+
+# see if we learned something. Let's change this to be reachable!
+kubectl apply -f https://cloud.weave.works/launch/k8s/weavescope.yaml
 ```
-The above configures our overlay network. It let's the pods running talk to each other if necessary (think: front ed talks to back end)
+The above configures our overlay network. It let's the pods running talk to each other if necessary (think: front end talks to back end)
 
 
 ```
