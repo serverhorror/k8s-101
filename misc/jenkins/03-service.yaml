@@ -12,7 +12,7 @@ spec:
     protocol: TCP
   - name: jenkins-jnlp
     port: 30500
-    #targetPort: 50000
+    targetPort: 50000
     nodePort: 30500
   selector:
     app: jenkins
