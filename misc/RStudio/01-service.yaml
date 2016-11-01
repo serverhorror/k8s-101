@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rstudio
+  labels:
+    app: rstudio
+spec:
+  type: NodePort
+  sessionAffinity: None
+  ports:
+  - name: rstudio
+    port: 8787
+    targetPort: 8787
+    nodePort: 30087
+    protocol: TCP
+  selector:
+    app: rstudio

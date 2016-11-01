@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rstudio
+  labels:
+    app: rstudio
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rstudio
+    spec:
+      containers:
+        - name: rstudio-web
+          image: rocker/rstudio
+          ports:
+          - containerPort: 8787
