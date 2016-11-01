@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: httphostname
+  labels:
+    app: httphostname
+    version: v0.1.3
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: httphostname
+        version: v0.1.2
+    spec:
+      containers:
+        - name: httphostname
+          image: serverhorror/httphostname:v0.1.2
+          ports:
+          - containerPort: 80
+          env:
+            - name: LISTEN_PORT
+              value: "80"
